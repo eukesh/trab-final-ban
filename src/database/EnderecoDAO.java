@@ -1,5 +1,7 @@
 package database;
 
+import model.Animal;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,7 @@ public class EnderecoDAO {
 
     private final PreparedStatement selectNewId;
     private final PreparedStatement insert;
+    private final PreparedStatement select;
     private final PreparedStatement delete;
     private final PreparedStatement selectAll;
 
@@ -34,14 +37,14 @@ public class EnderecoDAO {
         selectAll = conexao.prepareStatement("select * from animal");
     }
 
-    private int selectNewId()  {
+    private int selectNewId() throws SQLException {
         try{
             ResultSet rs = selectNewId.executeQuery();
             if(rs.next()){
                 return rs.getInt(1);
             }
         }catch (SQLException e){
-            throw new SelectException("Erro ao buscar novo id na tabela contato");
+            throw new SQLException("Erro ao buscar novo id na tabela contato");
         }
         return 0;
     }
