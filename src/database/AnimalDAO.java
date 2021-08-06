@@ -1,6 +1,7 @@
 package database;
 
 import model.Animal;
+import model.DonoCliente;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,6 +13,7 @@ import java.util.*;
 public class AnimalDAO {
 
     private static AnimalDAO instance = null;
+    private static EnderecoDAO enderecoDao = null;
 
 
     private final PreparedStatement selectNewId;
@@ -24,6 +26,7 @@ public class AnimalDAO {
     public static AnimalDAO getInstace() throws ClassNotFoundException, SQLException {
         if(instance == null){
             instance = new AnimalDAO();
+            enderecoDao = EnderecoDAO.getInstace();
         }
         return instance;
     }
@@ -35,7 +38,7 @@ public class AnimalDAO {
         select = conexao.prepareStatement("select * from animal where id = ?");
         delete = conexao.prepareStatement("delete from animal where id=?");
         selectAll = conexao.prepareStatement("select * from animal");
-        selectAnimalDono = conexao.prepareStatement("select a.id,a.nome,a.descricao,p2.nome,p2.cpf,p2.telefone from animal a join (select * from edono join clientedono c on edono.cpf_dono = c.cpf) as p2 on a.id = p2.id_animal");
+        selectAnimalDono = conexao.prepareStatement("select * from animal a join (select * from edono join clientedono c on edono.cpf_dono = c.cpf) as p2 on a.id = p2.id_animal");
     }
 
     private int selectNewId() throws SQLException {
@@ -71,43 +74,52 @@ public class AnimalDAO {
         }
     }
 
-    // refatorar para usar Map
-    public List<List<String>> getAllWithDono() throws SQLException{
-        List<List<String>> animaisdonos = new ArrayList<List<String>>();
+    public Animal select(int id) throws SQLException {
+        try{
+            select.setInt(1,id);
+            ResultSet rs = select.executeQuery();
+            while (rs.next()){
+                int idAnimal = rs.getInt(1);
+                String nome = rs.getString(2);
+                String descricao = rs.getString(3);
+                return new Animal(idAnimal,nome,descricao);
+            }
+        }catch (SQLException e){
+            throw new SQLException("Erro ao buscar Animal");
+        }
+        return null;
+    }
+
+    public Map<DonoCliente,List<Animal>> getAllWithDono() throws SQLException {
+        Map<DonoCliente,List<Animal>> animaisdono = new HashMap<>();
         try{
 
             ResultSet rs = selectAnimalDono.executeQuery();
-
             while (rs.next()){
-                List<String> temp = new ArrayList<>();
-                for (int i = 1; i <7; i++) {
-                    try{
-                        int a = rs.getInt(i);
-                        temp.add(String.valueOf(a));
-                    }catch (SQLException e){
-                        String a = rs.getString(i);
-                        temp.add(a);
-                    }
+                List<Animal> temp = new ArrayList<>();
+                int idAnimal = rs.getInt(1);
+                String nomeAnimal = rs.getString(2);
+                String descricaoAnimal = rs.getString(3);
+                int cpfDono = rs.getInt(7);
+                String nomeDono = rs.getString(8);
+                int telefone = rs.getInt(9);
+                int idEndereco = rs.getInt(10);
+
+                Animal animal = new Animal(idAnimal,nomeAnimal,descricaoAnimal);
+                DonoCliente dono = new DonoCliente(cpfDono,nomeDono,telefone,enderecoDao.selectId(idEndereco));
+
+                if(animaisdono.containsKey(dono)){
+                    animaisdono.get(dono).add(animal);
+                }else{
+                    temp.add(animal);
+                    animaisdono.put(dono,temp);
                 }
-                animaisdonos.add(temp);
             }
-            return animaisdonos;
+            return animaisdono;
 
         }catch (SQLException e){
             throw new SQLException("Erro ao buscar animais");
         }
-    }
-    // teste da consulta que envolve subconsulta(s) e uma ou mais funções de agregação
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ConectionBd.setSenha("toor");
-        AnimalDAO a = AnimalDAO.getInstace();
-        for(List x: a.getAllWithDono()){
-            for(Object y: x){
-                System.out.print(y+" ");
-            }
-            System.out.println();
-        }
-
     }
 
     public List<Animal> getAll() throws  SQLException {

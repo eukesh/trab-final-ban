@@ -79,4 +79,16 @@ public class Endereco {
         this.cep = cep;
     }
 
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "id=" + id +
+                ", estado='" + estado + '\'' +
+                ", rua='" + rua + '\'' +
+                ", numero=" + numero +
+                ", bairro='" + bairro + '\'' +
+                ", cidade='" + cidade + '\'' +
+                ", cep=" + cep +
+                '}';
+    }
 }

@@ -17,9 +17,7 @@ public class DonoClienteDAO {
     private static DonoClienteDAO instance = null;
     private static EnderecoDAO endereco = null;
 
-    private final PreparedStatement selectNewId;
     private final PreparedStatement insert;
-    private final PreparedStatement select;
     private final PreparedStatement delete;
     private final PreparedStatement selectAll;
 
@@ -33,9 +31,7 @@ public class DonoClienteDAO {
 
     private DonoClienteDAO() throws ClassNotFoundException, SQLException {
         Connection conexao = ConectionBd.getConexao();
-        selectNewId = conexao.prepareStatement("select nextval('id_clientedono')");
         insert = conexao.prepareStatement("insert into clientedono values(?,?,?,?)");
-        select = conexao.prepareStatement("select * from clientedono where id = ?");
         delete = conexao.prepareStatement("delete from clientedono where id=?");
         selectAll = conexao.prepareStatement("select cpf,nome,telefone,endereco.id from\n" + // juncao entre clientedono e endereco
                 "clientedono join endereco\n" +
