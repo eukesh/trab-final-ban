@@ -38,7 +38,8 @@ public class AnimalDAO {
         select = conexao.prepareStatement("select * from animal where id = ?");
         delete = conexao.prepareStatement("delete from animal where id=?");
         selectAll = conexao.prepareStatement("select * from animal");
-        selectAnimalDono = conexao.prepareStatement("select * from animal a join (select * from edono join clientedono c on edono.cpf_dono = c.cpf) as p2 on a.id = p2.id_animal");
+        selectAnimalDono = conexao.prepareStatement("select * from animal a join (select * from " +
+                "edono join clientedono c on edono.cpf_dono = c.cpf) as p2 on a.id = p2.id_animal");
     }
 
     private int selectNewId() throws SQLException {
