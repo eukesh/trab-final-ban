@@ -18,6 +18,7 @@ public class DonoClienteDAO {
     private static EnderecoDAO endereco = null;
 
     private final PreparedStatement insert;
+    private final PreparedStatement select;
     private final PreparedStatement delete;
     private final PreparedStatement selectAll;
 
@@ -32,7 +33,8 @@ public class DonoClienteDAO {
     private DonoClienteDAO() throws ClassNotFoundException, SQLException {
         Connection conexao = ConectionBd.getConexao();
         insert = conexao.prepareStatement("insert into clientedono values(?,?,?,?)");
-        delete = conexao.prepareStatement("delete from clientedono where id=?");
+        select = conexao.prepareStatement("select * from clientedono where cpf=?");
+        delete = conexao.prepareStatement("delete from clientedono where cpf=?");
         selectAll = conexao.prepareStatement("select cpf,nome,telefone,endereco.id from\n" + // juncao entre clientedono e endereco
                 "clientedono join endereco\n" +
                 "on clientedono.id_endereco = endereco.id");
@@ -47,8 +49,33 @@ public class DonoClienteDAO {
             insert.executeUpdate();
 
         }catch (SQLException e){
-            throw new SQLException("Erro ao inserir animal");
+            throw new SQLException("Erro ao inserir Dono");
         }
+    }
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        ConectionBd.setSenha("toor");
+        DonoClienteDAO a = DonoClienteDAO.getInstace();
+        a.insert(new DonoCliente(12345456,"Carlinhios",
+                1234, endereco.selectId(7)));
+    }
+
+    public DonoCliente select(int idDono) throws SQLException {
+        try{
+            select.setInt(1,idDono);
+            ResultSet rs = select.executeQuery();
+
+            while(rs.next()){
+                int cpf = rs.getInt(1);
+                String nome = rs.getString(2);
+                int telefone = rs.getInt(3);
+                int idEndereco = rs.getInt(4);
+                return new DonoCliente(cpf,nome,telefone,endereco.selectId(idEndereco));
+            }
+        } catch (SQLException e) {
+            throw new SQLException("Erro ao selecionar dono");
+        }
+        return null;
     }
 
     public void delete(DonoCliente dono) throws SQLException {

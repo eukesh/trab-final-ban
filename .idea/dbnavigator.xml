@@ -27,7 +27,7 @@
     <loaded-nodes>
       <connection connection-id="acf1919c-545e-4fce-86d2-6b4e8b019832">
         <schema name="pg_catalog" object-types="table, view, function" />
-        <schema name="public" object-types="table, view, function, column" />
+        <schema name="public" object-types="table, view, sequence, function, constraint, index, column, dataset trigger" />
       </connection>
     </loaded-nodes>
   </component>
@@ -37,10 +37,17 @@
 
 select * from clientedono
 select * from animal
+select * from endereco
 
 insert into clientedono values (12455,'Eduardo',12334,1)
 
-insert into edono values (54,12455,3)]]></console>
+insert into edono values (54,12455,3)
+
+select * from edono
+delete from edono
+delete from clientedono cascade
+delete from animal
+delete from endereco]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -48,6 +55,9 @@ insert into edono values (54,12455,3)]]></console>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="acf1919c-545e-4fce-86d2-6b4e8b019832" />
+  </component>
+  <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="acf1919c-545e-4fce-86d2-6b4e8b019832" dataset="public.edono" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

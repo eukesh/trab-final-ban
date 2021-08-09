@@ -1,32 +1,35 @@
 package controller;
 
-import database.AnimalDAO;
-import database.DonoClienteDAO;
-import database.EnderecoDAO;
+import database.*;
 import model.Animal;
 import model.DonoCliente;
 import model.Endereco;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
-public class System {
-    private static System instance = null;
+public class Controller {
+    private static Controller instance = null;
 
     private static AnimalDAO animalDao;
     private static DonoClienteDAO donoDao;
     private static EnderecoDAO enderecoDao;
+    private static EDonoDAO eDonoDAO;
 
-    public static System getInstance() throws SQLException, ClassNotFoundException {
+    public static Controller getInstance() throws SQLException, ClassNotFoundException {
         if(instance == null) {
-            instance = new System();
+            instance = new Controller();
+            ConectionBd.setSenha("toor");
             animalDao = AnimalDAO.getInstace();
             donoDao = DonoClienteDAO.getInstace();
             enderecoDao = EnderecoDAO.getInstace();
+            eDonoDAO = EDonoDAO.getInstace();
         }
         return instance;
     }
+    public void dono(){}
 
     public void insertAnimal(Animal animal) throws SQLException {
         animalDao.insert(animal);
@@ -38,6 +41,10 @@ public class System {
 
     public void insertDono(DonoCliente dono) throws SQLException {
         donoDao.insert(dono);
+    }
+
+    public void insertDonoAnimal(DonoCliente dono,Animal animal) throws SQLException {
+        eDonoDAO.insert(dono,animal);
     }
 
     public void deleteAnimal(Animal animal) throws SQLException {
@@ -66,6 +73,10 @@ public class System {
 
     public List<Endereco> getAllEndereco() throws SQLException {
         return enderecoDao.getAll();
+    }
+
+    public DonoCliente selectDono(int idDono) throws SQLException {
+        return donoDao.select(idDono);
     }
 
     public Animal selectAnimal(int id) throws SQLException {

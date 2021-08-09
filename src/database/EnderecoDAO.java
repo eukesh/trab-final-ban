@@ -75,7 +75,7 @@ public class EnderecoDAO {
         }
     }
 
-    public Endereco selectId(int  idEndereco) throws SQLException{
+    public Endereco selectId(int idEndereco) throws SQLException{
         try{
             select.setInt(1,idEndereco);
             ResultSet rs = select.executeQuery();
