@@ -5,8 +5,7 @@ public class Animal {
     private String nome;
     private String descricao;
 
-    public Animal() {
-    }
+    public Animal(){}
 
     public Animal(int id,String nome,String descricao){
         this.id = id;

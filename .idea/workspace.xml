@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72dafe12-d73b-4b87-8edc-b2fb870ccadb" name="Changes" comment="update 09/08">
-      <change afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/database/EDonoDAO.java" afterDir="false" />
+    <list default="true" id="72dafe12-d73b-4b87-8edc-b2fb870ccadb" name="Changes" comment="pre-revision">
+      <change afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/controller/System.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/AnimalDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/AnimalDAO.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/DonoClienteDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/DonoClienteDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/System.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/EnderecoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/EnderecoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/model/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/model/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/model/DonoCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/model/DonoCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/AnimalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/AnimalDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/DonoClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DonoClienteDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/EDonoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/EDonoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/database/EnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/EnderecoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/DonoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DonoCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +57,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -104,11 +110,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controller.Main" />
+      <option name="MAIN_CLASS_NAME" value="view.Main" />
       <module name="trab-final-ban" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controller.*" />
+          <option name="PATTERN" value="view.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -169,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628532598987</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="pre-revision">
+      <created>1628547598194</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1628547598194</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -190,7 +203,8 @@
     <MESSAGE value="Third" />
     <MESSAGE value="update 05/08" />
     <MESSAGE value="update 09/08" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 09/08" />
+    <MESSAGE value="pre-revision" />
+    <option name="LAST_COMMIT_MESSAGE" value="pre-revision" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

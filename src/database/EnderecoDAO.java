@@ -1,6 +1,5 @@
 package database;
 
-import model.Animal;
 import model.Endereco;
 
 import java.sql.Connection;
@@ -45,7 +44,7 @@ public class EnderecoDAO {
                 return rs.getInt(1);
             }
         }catch (SQLException e){
-            throw new SQLException("Erro ao buscar novo id na tabela contato");
+            throw new SQLException("Erro ao buscar novo id na tabela endereço");
         }
         return 0;
     }
@@ -79,7 +78,7 @@ public class EnderecoDAO {
         try{
             select.setInt(1,idEndereco);
             ResultSet rs = select.executeQuery();
-            while (rs.next()){
+            if (rs.next()){
                 int id = rs.getInt(1);
                 String estado = rs.getString(2);
                 String rua = rs.getString(3);
@@ -116,7 +115,7 @@ public class EnderecoDAO {
             return enderecos;
 
         }catch (SQLException e){
-            throw new SQLException("Erro ao buscar animais");
+            throw new SQLException("Erro ao buscar endereços");
         }
 
     }

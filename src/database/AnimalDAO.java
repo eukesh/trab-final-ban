@@ -49,7 +49,7 @@ public class AnimalDAO {
                 return rs.getInt(1);
             }
         }catch (SQLException e){
-            throw new SQLException("Erro ao buscar novo id na tabela contato");
+            throw new SQLException("Erro ao buscar novo id na tabela Animal");
         }
         return 0;
     }
@@ -79,7 +79,7 @@ public class AnimalDAO {
         try{
             select.setInt(1,id);
             ResultSet rs = select.executeQuery();
-            while (rs.next()){
+            if (rs.next()){
                 int idAnimal = rs.getInt(1);
                 String nome = rs.getString(2);
                 String descricao = rs.getString(3);

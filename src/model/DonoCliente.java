@@ -1,6 +1,5 @@
 package model;
 
-import database.EnderecoDAO;
 
 import java.util.Objects;
 

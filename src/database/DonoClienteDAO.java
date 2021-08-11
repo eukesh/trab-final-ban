@@ -1,6 +1,5 @@
 package database;
 
-import model.Animal;
 import model.DonoCliente;
 import model.Endereco;
 
@@ -35,8 +34,8 @@ public class DonoClienteDAO {
         insert = conexao.prepareStatement("insert into clientedono values(?,?,?,?)");
         select = conexao.prepareStatement("select * from clientedono where cpf=?");
         delete = conexao.prepareStatement("delete from clientedono where cpf=?");
-        selectAll = conexao.prepareStatement("select cpf,nome,telefone,endereco.id from\n" + // juncao entre clientedono e endereco
-                "clientedono join endereco\n" +
+        selectAll = conexao.prepareStatement("select cpf,nome,telefone,id_endereco,endereco.estado,endereco.rua,endereco.numero,\n" +
+                " endereco.bairro,endereco.cidade,endereco.cep from clientedono join endereco \n" +
                 "on clientedono.id_endereco = endereco.id");
     }
 
@@ -53,19 +52,12 @@ public class DonoClienteDAO {
         }
     }
 
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        ConectionBd.setSenha("toor");
-        DonoClienteDAO a = DonoClienteDAO.getInstace();
-        a.insert(new DonoCliente(12345456,"Carlinhios",
-                1234, endereco.selectId(7)));
-    }
-
     public DonoCliente select(int idDono) throws SQLException {
         try{
             select.setInt(1,idDono);
             ResultSet rs = select.executeQuery();
 
-            while(rs.next()){
+            if(rs.next()){
                 int cpf = rs.getInt(1);
                 String nome = rs.getString(2);
                 int telefone = rs.getInt(3);
@@ -83,7 +75,7 @@ public class DonoClienteDAO {
             delete.setInt(1,dono.getCpf());
             delete.executeUpdate();
         }catch (SQLException e){
-            throw new SQLException("Erro ao deletar animal");
+            throw new SQLException("Erro ao deletar dono");
         }
     }
 
@@ -98,13 +90,19 @@ public class DonoClienteDAO {
                 String nome = rs.getString(2);
                 int telefone = rs.getInt(3);
                 int idEndereco = rs.getInt(4);
-                donos.add(new DonoCliente(cpf,nome,telefone,endereco.selectId(idEndereco)));
+                String estado = rs.getString(5);
+                String rua = rs.getString(6);
+                int numero = rs.getInt(7 );
+                String bairro = rs.getString( 8);
+                String cidade = rs.getString(9);
+                int cep = rs.getInt(10);
+                donos.add(new DonoCliente(cpf,nome,telefone,new Endereco(idEndereco, estado, rua, numero, bairro, cidade, cep)));
 
             }
             return donos;
 
         }catch (SQLException e){
-            throw new SQLException("Erro ao buscar animais");
+            throw new SQLException("Erro ao buscar dono");
         }
 
     }

@@ -27,27 +27,16 @@
     <loaded-nodes>
       <connection connection-id="acf1919c-545e-4fce-86d2-6b4e8b019832">
         <schema name="pg_catalog" object-types="table, view, function" />
-        <schema name="public" object-types="table, view, sequence, function, constraint, index, column, dataset trigger" />
+        <schema name="public" object-types="table, view, function, column" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="acf1919c-545e-4fce-86d2-6b4e8b019832">
-      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from animal a join (select * from edono join clientedono c on edono.cpf_dono = c.cpf) as p2 on a.id = p2.id_animal
-
-select * from clientedono
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from clientedono
 select * from animal
 select * from endereco
-
-insert into clientedono values (12455,'Eduardo',12334,1)
-
-insert into edono values (54,12455,3)
-
-select * from edono
-delete from edono
-delete from clientedono cascade
-delete from animal
-delete from endereco]]></console>
+select * from edono]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

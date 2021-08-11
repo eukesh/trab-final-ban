@@ -37,7 +37,7 @@ public class EDonoDAO {
                 return rs.getInt(1);
             }
         }catch (SQLException e){
-            throw new SQLException("Erro ao buscar novo id na tabela contato");
+            throw new SQLException("Erro ao buscar novo id na tabela edono");
         }
         return 0;
     }
