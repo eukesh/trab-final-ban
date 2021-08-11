@@ -24,19 +24,19 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="acf1919c-545e-4fce-86d2-6b4e8b019832">
-        <schema name="pg_catalog" object-types="table, view, function" />
-        <schema name="public" object-types="table, view, function, column" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="acf1919c-545e-4fce-86d2-6b4e8b019832">
       <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from clientedono
 select * from animal
 select * from endereco
-select * from edono]]></console>
+select * from edono
+
+drop table animal cascade;
+drop table clientedono cascade
+
+drop sequence id_edono]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

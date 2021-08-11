@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72dafe12-d73b-4b87-8edc-b2fb870ccadb" name="Changes" comment="pre-revision">
-      <change afterPath="$PROJECT_DIR$/src/view/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bancodedados.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/AnimalDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/AnimalDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/DonoClienteDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/DonoClienteDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/database/EnderecoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/database/EnderecoDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/model/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/model/Animal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/trab-final-ban/model/DonoCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/trab-final-ban/model/DonoCliente.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/AnimalDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/AnimalDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/DonoClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/DonoClienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/EDonoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/EDonoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/EnderecoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/EnderecoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/DonoCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/DonoCliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628547598194</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="pre-revision">
+      <created>1628653128559</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1628653128559</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
