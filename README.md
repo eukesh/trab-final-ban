@@ -1,4 +1,4 @@
-# rede-social-fotos
+# Sistema de Pet-Shop
 
 Trabalho desenvolvido na disciplina Banco de Dados da professora Rebeca Schroeder Freitas na UDESC
 
